@@ -168,6 +168,125 @@
 </details>
 
 <details>
+<summary>Как задать flexbox?</summary>
+<div> 
+	<br />
+	<p>Для начала нам нужно выбрать, какие элементы следует выкладывать в виде flex блоков. Для этого мы устанавливаем специальное значение display в родительском элементе тех элементов, которые вы хотите оформить. display: flex;</p>
+	<p><b>Примечание:</b> Вы также можете установить значение display inline-flex, если хотите расставить inline элементы как flex блоки.</p>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>Какие оси есть в flexbox?</summary>
+<div> 
+	<br />
+	<ul>
+		<li><b>Главная ось (main axis)</b> проходит в том направлении, вдоль которого расположены Flex элемнеты (например, в строку слева направо или вдоль колонок вниз.) Начало и конец этой оси называются main start и main end.</li>
+		<li><b>Поперечная ось (сross axis)</b> проходит перпендикулярно Flex элементам. Начало и конец этой оси называются cross start and cross end.</li>
+		<li>Родительский элемент, на который назначено свойство display: flex называется <b>flex container</b>.</li>
+		<li>Элементы, размещённые в нём как Flex блоки называются <b>flex items</b></li>
+	</ul>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>Какое свойство flexbox отвечает за направление flex items?</summary>
+<div> 
+	<br />
+	<p>В Flexbox есть свойство под названием flex-direction, которое определяет направление главной оси (в каком направлении располагаются flexbox дети) — по умолчанию ему присваивается значение row, т.е. располагать дочерние элементы в ряд слева направо (для большинства языков) или справа налево (для арабских языков).</p>
+	<ul>
+		<li>row | row-reverse | column | column-reverse</li>
+	</ul>
+	<ul>
+		<li><b>row</b> The flex container's main-axis is defined to be the same as the text direction. The main-start and main-end points are the same as the content direction.</li>
+		<li><b>row-reverse</b> Behaves the same as row but the main-start and main-end points are permuted.</li>
+		<li><b>column</b> The flex container's main-axis is the same as the block-axis. The main-start and main-end points are the same as the before and after points of the writing-mode.</li>
+		<li><b>column-reverse</b> Behaves the same as column but the main-start and main-end are permuted.</li>
+	</ul>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>Какое правило flexbox задает вывод flex items в одну строку или в несколько строк?</summary>
+<div> 
+	<br />
+	<p>Свойство CSS flex-wrap</p>
+	<ul>
+		<li>nowrap | wrap | wrap-reverse</li>
+	</ul>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>flex-flow сокращение, расскажите?</summary>
+<div> 
+	<br />
+	<p>На этом этапе нужно заметить, что сществует сокращение для свойств flex-direction и flex-wrap — flex-flow. Например, вы можете заменить</p>
+	<p>flex-direction: row; <br> flex-wrap: wrap;</p>
+	<p>flex-flow: row wrap;</p>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>Как можно гибко изменять размеры flex элементов?</summary>
+<div> 
+	<br />
+</div>
+
+```css
+article {
+  flex: 1 200px;
+}
+
+article:nth-of-type(3) {
+  flex: 2 200px;
+}
+```
+
+<div>
+	<p>Это просто означает, что каждому flex элементу сначала будет дано 200px от свободного места. Потом оставшееся место будет поделено в соответствии с частями пропорций.</p>
+	<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+</div>
+</details>
+
+<details>
+<summary>сокращённое свойство flex</summary>
+<div> 
+	<br />
+	<p><b>flex</b> это сокращённое свойство, в которым можно задать до трёх разных свойств:</p>
+	<ul>
+		<li>Значение пропорции. Оно может быть установлено отдельно с помощью свойства <b>flex-grow</b>.</li>
+		<li>Следующее значение пропорции — <b>flex-shrink</b> — вступает в роль, когда flex элементы переполняют контейнер. Оно указывает, сколько забирается от размера каждого flex элемента, чтобы он перестал переполнять контейнер. Это продвинутая функция flexbox.</li>
+		<li>Значение минимального размера, как мы обсуждали ранее. Оно может быть установлено отдельно с помощью свойства <b>flex-basis</b>.</li>
+		<p>Подробней: https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox</p>
+	</ul>
+</div>
+</details>
+
+<details>
+<summary>Расскажите про flex-grow, flex-shrink, flex-basis?</summary>
+<div> 
+	<br />
+	<ul>
+		<li>Свойство CSS <b>flex-grow</b> определяет, какую часть свободного пространства может занять контейнер, в соотношении с другими контейнерами. </li>
+		<li><b>flex-shrink</b> — свойство CSS, которое определяет фактор сжатия  flex-элемента. Flex-элементы будут заполнять контейнер в зависимости от значения flex-shrink, когда стандартная ширина flex-элементов шире, чем flex-контейнер.</li>
+		<li><b>flex-basis</b> CSS свойство задает базовые размеры флекс элемента, а именно ширину.  Это свойство определяет размер содержимого контента,  если оно не было заданно свойством  box-sizing.</li>
+	</ul>
+	<b>Подробней:</b>
+	<ul>
+		<li>https://developer.mozilla.org/ru/docs/Web/CSS/flex-grow</li>
+		<li>https://developer.mozilla.org/ru/docs/Web/CSS/flex-shrink</li>
+		<li>https://developer.mozilla.org/ru/docs/Web/CSS/flex-basis</li>
+	</ul>
+</div>
+</details>
+
+<details>
 <summary>Что такое css grid?</summary>
 <div> 
 	<br />
@@ -438,5 +557,21 @@
 	<br />
 	<p>Метод bind() создаёт новую функцию, которая при вызове устанавливает в качестве контекста выполнения this предоставленное значение. В метод также передаётся набор аргументов, которые будут установлены перед переданными в привязанную функцию аргументами при её вызове.</p>
 	<p>Подробней: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind</p>
+</div>
+</details>
+
+<details>
+<summary>Объясните, как работает наследование в JavaScript?</summary>
+<div> 
+	<br />
+	<p>Модель наследования в JavaScript может озадачить опытных разработчиков на высокоуровневых объектно-ориентированных языках (таких, например, как Java или C++), поскольку она динамическая и не включает в себя реализацию понятия class (хотя ключевое слово class, бывшее долгие годы зарезервированным, и приобрело практическое значение в стандарте ES2015, однако, Class в JavaScript ES>=6 представляет собой лишь "синтаксический сахар" поверх прототипно-ориентированной модели наследования).</p>
+	<p>В плане наследования JavaScript работает лишь с одной сущностью: объектами. Каждый объект имеет внутреннюю ссылку на другой объект, называемый его прототипом. У объекта-прототипа также есть свой собственный прототип и так далее до тех пор, пока цепочка не завершится объектом, у которого свойство prototype равно null.  По определению, null не имеет прототипа и является завершающим звеном в цепочке прототипов.</p>
+	<p>Хотя прототипную модель наследования некоторые относят к недостаткам JavaScript, на самом деле она мощнее классической. К примеру, поверх неё можно предельно просто реализовать классическое наследование, а вот попытки совершить обратное непременно вынудят вас попотеть.</p>
+	<b>Подробней:</b>
+	<ul>
+		<li>https://developer.mozilla.org/ru/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</li>
+		<li>https://learn.javascript.ru/class-inheritance</li>
+		<li>https://habrahabr.ru/post/131714/</li>
+	</ul>
 </div>
 </details>
