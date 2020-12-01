@@ -575,3 +575,30 @@ article:nth-of-type(3) {
 	</ul>
 </div>
 </details>
+
+<details>
+<summary>Задача, что смущает в этом коде?</summary>
+```js
+	setInterval(() => {
+		document.getElementById('bigCookie').click()
+	}, 100)
+```
+<div> 
+	<br />
+	<p>
+	(()=> {
+		var cookie = document.querySelector('#bigCookie');
+		setInterval(()=> {
+			cookie.click();
+		}, 100);
+	})()
+	</p>
+	<p>Чтобы не дергать DOM на каждом цикле</p>
+	<p>setInterval(c => c.click(), 100, bigCookie), ибо любой легальный для js-идентификаторов id элемента: это одноимённое свойство глобального объекта. Но, он может быть переопределен находящемся на странице скриптом.</p>
+	<ul>
+		<li>https://developer.mozilla.org/ru/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</li>
+		<li>https://learn.javascript.ru/class-inheritance</li>
+		<li>https://habrahabr.ru/post/131714/</li>
+	</ul>
+</div>
+</details>
