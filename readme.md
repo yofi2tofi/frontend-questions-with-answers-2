@@ -579,9 +579,9 @@ article:nth-of-type(3) {
 <details>
 <summary>Задача, что смущает в этом коде?</summary>
 ```js
-	setInterval(() => {
-		document.getElementById('bigCookie').click()
-	}, 100)
+setInterval(() => {
+	document.getElementById('bigCookie').click()
+}, 100)
 ```
 <div> 
 	<br />
