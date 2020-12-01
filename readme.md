@@ -595,10 +595,5 @@ setInterval(() => {
 	</p>
 	<p>Чтобы не дергать DOM на каждом цикле</p>
 	<p>setInterval(c => c.click(), 100, bigCookie), ибо любой легальный для js-идентификаторов id элемента: это одноимённое свойство глобального объекта. Но, он может быть переопределен находящемся на странице скриптом.</p>
-	<ul>
-		<li>https://developer.mozilla.org/ru/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</li>
-		<li>https://learn.javascript.ru/class-inheritance</li>
-		<li>https://habrahabr.ru/post/131714/</li>
-	</ul>
 </div>
 </details>
